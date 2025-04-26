@@ -11,8 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      AWS_REGION: us-east-1                  # Set your AWS Region
-      ECR_REPOSITORY: 539935451710.dkr.ecr.us-east-1.amazonaws.com/hackathon-devops-riju-patient:latest      # Set your ECR repo name
+      AWS_REGION: us-east-1   
+      AWS_PROFILE: hackathon-devops
+      ECR_REPOSITORY: 539935451710.dkr.ecr.us-east-1.amazonaws.com/hackathon-devops-riju-services      # Set your ECR repo name
       EKS_CLUSTER_NAME: hackathon-devops-riju-dev # Set your EKS cluster name
       IMAGE_TAG: latest                      # You can also use GITHUB_SHA for unique tags
 
@@ -25,7 +26,7 @@ jobs:
       with:
         aws-access-key-id: AKIAX3NVJFI7LWSAVZPW
         aws-secret-access-key: 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
-        aws-region: us-east-1
+        aws-region: $AWS_REGION
 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
