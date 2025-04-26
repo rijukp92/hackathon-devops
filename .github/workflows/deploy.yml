@@ -1,0 +1,14 @@
+name: Deploy to AWS EKS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps: 
+      - name : mys-first-step
+        run : echo "Hello world"
